@@ -22,3 +22,5 @@
      *                                                               *
      *   Signature: Devansh Chandgothia and Priyanka Dangol          *
      *****************************************************************/
+     
+     Methods 'partition', 'select' and 'median' are in the same class ("Partition.java")
