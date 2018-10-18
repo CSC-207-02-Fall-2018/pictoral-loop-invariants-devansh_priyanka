@@ -1,0 +1,10 @@
+We believe our programs are correct because we made sure to test each of the programs with different test cases
+and looked at whether the answers were right or wrong.
+
+For example, for all the other programs apart from the Dutch National Flag problem, we tested the programs
+under several conditions:
+1) when the array is already sorted
+2) When the minimum number in the array is the first element in the array
+3) When the minimum number in the array is the last element in the array
+4) when there is only one number in the array
+5) When the array is null
