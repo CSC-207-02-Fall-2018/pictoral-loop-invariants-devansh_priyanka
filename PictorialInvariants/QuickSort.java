@@ -3,6 +3,17 @@ package loopInvariants;
 /** This program sorts an array of numbers using the quick sort method*/
 
 public class QuickSort {
+	
+	/**
+	 * partitions the array by putting all the values lesser than 
+	 * 'left' to one side and putting all the values higher than left 
+	 * to the other 'right' side
+	 * 
+	 * @param a: an array
+	 * @param left: first element to implement partition on
+	 * @param right: last element to implement partition on
+	 * @return: the new index at which left is placed 
+	 */
 	public static int partition (int a[], int left, int right) {
 		int l_spot= left +1;
 		int pivot = a[left];
@@ -38,20 +49,24 @@ public class QuickSort {
 	}
 	
 	
-	/*calls the quicksortKernel 
-	 * @param : a[] : array 
-	 * 			n : length of array
+	/**
+	 * sorts an array of integers in an ascending order by
+	 * calling the quicksortKernel 
+	 * @param a[]: an array
+	 * @param n: length of array
 	 */
 	public static void quicksort (int a[], int n) {
 		if (a.length != 0) 
 		quicksortKernel(a, 0, n-1);
 	}
 	
-	/*
-	 * @param : a[] : array 
-	 * 		   left  : left index of the array
-	 *         right: the right most index of the array 
-	 * @return: 0 if the array a[] is sorted
+	
+	/**
+	 * 
+	 * @param a[] : array
+	 * @param left : left index 
+	 * @param right: right index
+	 * @return 0 if the array a[] is sorted
 	 */
 	public static int quicksortKernel(int a[], int left, int right) {
 		//stores the value of the new position of pivot in index
@@ -59,11 +74,12 @@ public class QuickSort {
 		
 		//if index = 0, then the left part of the original index has been sorted
 		if(left < right) {
+			
 			/*calls the partition function on the left side of the
 			 * 'index' 
 			 */
 			if(index > 0) {
-				quicksortKernel(a, left, index-1);
+				quicksortKernel(a, left, index);
 			}
 			/*calls the partition function on the right side of the
 			 * 'index' 
@@ -110,27 +126,26 @@ public class QuickSort {
 		}
 		System.out.print(arr1[arr1.length-1] + "} \n ");
 		
-		System.out.println("Sorted array (2): ");
+		System.out.println("Sorted array 2: ");
 		System.out.print("{");
 		for (int i= 0; i < arr2.length-1; i++) {
 			System.out.print(arr2[i] + ", ");
 		}
 		System.out.print(arr1[arr2.length-1] + "} ");
 		
-		System.out.println("\nSorted array (3): ");
+		System.out.println("\nSorted array 3: ");
 		for (int i= 0; i < arr3.length; i++) {
 			System.out.print(arr3[i] + ", ");
 		}
-		//System.out.print(arr3[arr3.length-1] + "} ");
 		
-		System.out.println("\n Sorted array (4): ");
+		System.out.println("\n Sorted array 4: ");
 		System.out.print("{");
 		for (int i= 0; i < arr4.length-1; i++) {
 			System.out.print(arr4[i] + ", ");
 		}
 		System.out.print(arr4[arr4.length-1] + "} ");
 		
-		System.out.println("\nSorted array(5): ");
+		System.out.println("\nSorted array 5: ");
 		System.out.print("{");
 		for (int i= 0; i < arr5.length-1; i++) {
 			System.out.print(arr5[i] + ", ");
