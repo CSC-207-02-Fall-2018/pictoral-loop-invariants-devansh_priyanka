@@ -48,18 +48,15 @@ public class QuickSort {
 		return r_spot;
 	}
 	
-	
 	/**
 	 * sorts an array of integers in an ascending order by
 	 * calling the quicksortKernel 
 	 * @param a[]: an array
-	 * @param n: length of array
 	 */
-	public static void quicksort (int a[], int n) {
+	public static void quicksort (int a[]) {
 		if (a.length != 0) 
-		quicksortKernel(a, 0, n-1);
+		quicksortKernel(a, 0, a.length-1);
 	}
-	
 	
 	/**
 	 * 
@@ -91,11 +88,12 @@ public class QuickSort {
 		return 0;
 	}
 	
-	
+	/**
+	 * main testing program
+	 * @param args not used
+	 */
 	public static void main (String args[]) {
-		
 		//testing in main 
-	
 		
 		//testing with a sorted array 
 		int [] arr1 = {10, 30, 40, 50, 60, 70, 80, 90};
@@ -112,19 +110,31 @@ public class QuickSort {
 		//testing with the minimum value at the end of an array
 		int [] arr5 = {60, 70, 100, 5, 3, 40, 2, 1};
 		
+		//testing with negative numbers
+		int [] arr6 = {100, -5, 0, 10, -30, 40, 50, -60, 70, -80, 90};
 		
-		quicksort(arr1, arr1.length);
-		quicksort(arr2, arr2.length);
-		quicksort(arr3, arr3.length);
-		quicksort(arr4, arr4.length);
-		quicksort(arr5, arr5.length);
+		//testing with only one element in the array
+		int [] arr7 = {7};
+		
+		//testing with maximum value at the start
+		int [] arr8 = {9, 5, 3, 1, 7};
+		
+		quicksort(arr1);
+		quicksort(arr2);
+		quicksort(arr3);
+		quicksort(arr4);
+		quicksort(arr5);
+		quicksort(arr6);
+		quicksort(arr6);
+		quicksort(arr7);
+		quicksort(arr8);
 		
 		System.out.println("Sorted array : ");
 		System.out.print("{");
 		for (int i= 0; i < arr1.length-1; i++) {
 			System.out.print(arr1[i] + ", ") ;
 		}
-		System.out.print(arr1[arr1.length-1] + "} \n ");
+		System.out.print(arr1[arr1.length-1] + "} \n");
 		
 		System.out.println("Sorted array 2: ");
 		System.out.print("{");
@@ -138,7 +148,7 @@ public class QuickSort {
 			System.out.print(arr3[i] + ", ");
 		}
 		
-		System.out.println("\n Sorted array 4: ");
+		System.out.println("\nSorted array 4: ");
 		System.out.print("{");
 		for (int i= 0; i < arr4.length-1; i++) {
 			System.out.print(arr4[i] + ", ");
@@ -151,6 +161,27 @@ public class QuickSort {
 			System.out.print(arr5[i] + ", ");
 		}
 		System.out.print(arr5[arr5.length-1] + "} ");
+		
+		System.out.println("\nSorted array 6: ");
+		System.out.print("{");
+		for (int i= 0; i < arr6.length-1; i++) {
+			System.out.print(arr6[i] + ", ");
+		}
+		System.out.print(arr6[arr6.length-1] + "} ");
+		
+		System.out.println("\nSorted array 7: ");
+		System.out.print("{");
+		for (int i= 0; i < arr7.length-1; i++) {
+			System.out.print(arr7[i] + ", ");
+		}
+		System.out.print(arr7[arr7.length-1] + "} ");
+		
+		System.out.println("\nSorted array 8: ");
+		System.out.print("{");
+		for (int i= 0; i < arr8.length-1; i++) {
+			System.out.print(arr8[i] + ", ");
+		}
+		System.out.print(arr8[arr8.length-1] + "} ");
 	}
 }
 

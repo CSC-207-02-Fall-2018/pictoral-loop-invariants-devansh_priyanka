@@ -1,12 +1,12 @@
 package loopInvariants;
 
 public class Partition {
+	
 	/**
 	 * partitions the array by putting all the values lesser than 
 	 * 'left' to one side and putting all the values higher than left 
 	 * to the other 'right' side
-	 * 
-	 * @param a: an array
+	 * @param a: an array of integers
 	 * @param left: first element to implement partition on
 	 * @param right: last element to implement partition on
 	 * @return: the new index at which left is placed 
@@ -47,13 +47,12 @@ public class Partition {
 	
 	/**
 	 * finds the kth smallest element in an array
-	 * @param a[] : an array
-	 * @param n: length of the array
+	 * @param a[] : an array of integers
 	 * @param k: the number whose smallest value the user wants to find
 	 * @return the selectKernel helper procedure
 	 */
-	public static int select (int a[], int n, int k) {
-		return selectKernel(a, k, 0, n-1);
+	public static int select (int a[], int k) {
+		return selectKernel(a, k, 0, a.length-1);
 	}
 	
 	/**
@@ -75,6 +74,7 @@ public class Partition {
 		}
 		else {
 			middle = partition(a, left, right);
+			//if middle is the desired kth smallest
 			if(pos == middle) {
 				return a[pos];
 			}
@@ -95,59 +95,62 @@ public class Partition {
 	
 	/**
 	 * finds the median value of an array 
-	 * @param a[] : an array
-	 * @param n: length of an array
+	 * @param a[] : an array of integers
 	 * @return : the median value
 	 */
-	public static int median (int a[], int n) {
+	public static int median (int a[]) {
 		int median = 0;
-		
+		int n=a.length;
 		//finds the median if an array has odd number of elements
 		if(n%2 == 1) {
 			int middlePos = n/2;
-			median = select(a, n, middlePos +1);
+			median = select(a, middlePos +1);
 		}
 		//finds the median if an array has an even number of elements
 		else {
 			int middlePos1 = n/2 - 1;
 			int middlePos2 = (n/2);
 			//finds the average of the two elements that fall in the middle of the array
-			median = (select(a, n, middlePos1 + 1 ) + select(a, n, middlePos2 + 1)) / 2;
+			median = (select(a, middlePos1 + 1 ) + select(a, middlePos2 + 1)) / 2;
 		}
 		return median;
 	}
 	
+	/**
+	 * main testing program
+	 * @param args not used
+	 */
 	public static void main (String args[]) {
 		//testing with a random set of integers
 		int [] arr = {70, 80, 30, 90, 40, 60, 50, 10, 20, 0};
 		int k = 6;
-		System.out.println(k+"th smallest: " + select(arr, arr.length, k));
-		System.out.println("Median: " + median(arr, arr.length));
+		System.out.println(k+"th smallest: " + select(arr, k));
+		System.out.println("Median: " + median(arr));
 		
 		//testing with a sorted array 
 		int [] arr1 = {10, 30, 40, 50, 60, 70, 80, 90};
-		System.out.println(k+"th smallest: " + select(arr1, arr1.length, k));
-		System.out.println("Median: " + median(arr1, arr1.length));
+		System.out.println(k+"th smallest: " + select(arr1, k));
+		System.out.println("Median: " + median(arr1));
 				
 		//testing with a random set of integers
 		int [] arr2 = {60, 70, 100, 5, 3, 4, 1, 9};
-		System.out.println(k+"th smallest: " + select(arr2, arr2.length, k));
-		System.out.println("Median: " + median(arr2, arr2.length));
+		System.out.println(k+"th smallest: " + select(arr2, k));
+		System.out.println("Median: " + median(arr2));
 				
-		//testing with an empty array 
+		//testing with one element in the array 
 		int [] arr3 = {1};
 		int j = 1;
-		System.out.println(j+"th smallest: " + select(arr3, arr3.length, j));
-		System.out.println("Median: " + median(arr3, arr3.length));
+		System.out.println(j+"th smallest: " + select(arr3, j));
+		System.out.println("Median: " + median(arr3));
 		
 		//testing with the minimum value at the start of the array
 		int [] arr4 = {1, 70, 100, 5, 3, 4, 2, 9};
-		System.out.println(k+"th smallest: " + select(arr4, arr4.length, k));
-		System.out.println("Median: " + median(arr4, arr4.length));
+		System.out.println(k+"th smallest: " + select(arr4, k));
+		System.out.println("Median: " + median(arr4));
 		
 		//testing with the minimum value at the end of an array
 		int [] arr5 = {60, 70, 100, 5, 3, 40, 2, 1};
-		System.out.println(k+"th smallest: " + select(arr5, arr5.length, k));
-		System.out.println("Median: " + median(arr5, arr5.length));
+		System.out.println(k+"th smallest: " + select(arr5, k));
+		System.out.println("Median: " + median(arr5));
 	}
 }
